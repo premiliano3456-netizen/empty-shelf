@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Empty Shelf: How the Union Naval Blockade Shaped Confederate Civilian Life in 1862</title>
+  <style>
+    :root {
+      --paper: #efe4cb;
+      --paper2: #f7f0df;
+      --ink: #24180f;
+      --muted: #604a36;
+      --brown: #5c3a22;
+      --dark: #2d2118;
+      --line: rgba(36, 24, 15, 0.22);
+      --accent: #22364d;
+      --accent2: #7a3f2a;
+      --shadow: rgba(30, 18, 9, 0.18);
+      --shelf: #6e4228;
+      --shelf-dark: #3e2517;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255,255,255,.32), transparent 24rem),
+        linear-gradient(180deg, #d7c39c 0%, var(--paper) 28%, #e5d5b8 100%);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+
+    .site-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 20px 48px;
+    }
+
+    header {
+      border: 1px solid var(--line);
+      background: rgba(247, 240, 223, .92);
+      box-shadow: 0 12px 30px var(--shadow);
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.04) 1px, transparent 1px),
+        linear-gradient(rgba(0,0,0,.03) 1px, transparent 1px);
+      background-size: 46px 46px;
+      opacity: .35;
+      pointer-events: none;
+    }
+
+    header > * {
+      position: relative;
+    }
+
+    .label {
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      font-size: .78rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.15rem, 4vw, 4.25rem);
+      line-height: 1.02;
+      max-width: 1000px;
+    }
+
+    .subtitle {
+      margin: 14px 0 0;
+      font-size: 1.18rem;
+      color: var(--muted);
+      max-width: 860px;
+    }
+
+    .question-card {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .question-card > div {
+      background: rgba(255,255,255,.42);
+      border-left: 4px solid var(--accent);
+      padding: 15px 16px;
+    }
+
+    .question-card h2 {
+      margin: 0 0 5px;
+      font-size: 1rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .question-card p {
+      margin: 0;
+    }
+
+    .nav-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0 0;
+    }
+
+    .nav-strip a {
+      color: var(--paper2);
+      background: var(--dark);
+      border: 1px solid var(--dark);
+      padding: 8px 12px;
+      text-decoration: none;
+      font-size: .88rem;
+    }
+
+    .nav-strip a:hover,
+    .nav-strip a:focus {
+      background: var(--accent);
+    }
+
+    .context-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 24px 0;
+    }
+
+    .card {
+      background: rgba(247, 240, 223, .92);
+      border: 1px solid var(--line);
+      padding: 22px;
+      box-shadow: 0 8px 20px rgba(30,18,9,.10);
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 1.5rem;
+      color: var(--dark);
+    }
+
+    .card p {
+      margin: 0 0 12px;
+    }
+
+    .source-note {
+      font-size: .86rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+      white-space: pre-line;
+    }
+
+    .exhibit {
+      background: rgba(247, 240, 223, .95);
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 34px var(--shadow);
+      padding: 24px;
+      margin: 24px 0;
+    }
+
+    .exhibit-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+
+    .exhibit-title h2 {
+      margin: 0;
+      font-size: 1.75rem;
+    }
+
+    .instruction {
+      color: var(--muted);
+      margin: 0;
+      max-width: 440px;
+      text-align: right;
+      font-size: .98rem;
+    }
+
+    .storefront {
+      position: relative;
+      border: 10px solid var(--shelf-dark);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,.05)),
+        repeating-linear-gradient(90deg, #704428 0 36px, #633a22 36px 72px);
+      min-height: 460px;
+      padding: 28px;
+      overflow: hidden;
+    }
+
+    .storefront::before,
+    .storefront::after {
+      content: "";
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      height: 26px;
+      background: linear-gradient(180deg, var(--shelf), var(--shelf-dark));
+      box-shadow: 0 10px 16px rgba(0,0,0,.25);
+    }
+
+    .storefront::before { top: 178px; }
+    .storefront::after { bottom: 120px; }
+
+    .shelf-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(160px, 1fr));
+      gap: 42px 28px;
+      padding-top: 36px;
+    }
+
+    .shelf-item {
+      min-height: 132px;
+      border: 2px solid rgba(36, 24, 15, .48);
+      background:
+        linear-gradient(180deg, rgba(247,240,223,.95), rgba(220,203,165,.92));
+      color: var(--ink);
+      font: inherit;
+      cursor: pointer;
+      padding: 16px 12px;
+      box-shadow: 0 12px 18px rgba(0,0,0,.22);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform .18s ease, box-shadow .18s ease, outline .18s ease;
+      position: relative;
+    }
+
+    .shelf-item::after {
+      content: "Open essay";
+      position: absolute;
+      bottom: 6px;
+      font-size: .72rem;
+      color: var(--accent2);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      opacity: .78;
+    }
+
+    .shelf-item:hover,
+    .shelf-item:focus {
+      transform: translateY(-5px);
+      outline: 3px solid rgba(34, 54, 77, .42);
+      box-shadow: 0 18px 28px rgba(0,0,0,.28);
+    }
+
+    .item-icon {
+      font-size: 2.25rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .item-label {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .item-date {
+      display: block;
+      font-size: .86rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .essay-area {
+      margin-top: 24px;
+    }
+
+    .essay-placeholder {
+      border: 1px dashed rgba(36, 24, 15, .36);
+      padding: 22px;
+      text-align: center;
+      color: var(--muted);
+      background: rgba(255,255,255,.35);
+    }
+
+    .essay-panel {
+      display: none;
+      background: var(--paper2);
+      border: 1px solid var(--line);
+      padding: 28px;
+      box-shadow: inset 0 0 0 6px rgba(36,24,15,.035);
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .essay-panel.active {
+      display: block;
+      animation: reveal .18s ease-out;
+    }
+
+    @keyframes reveal {
+      from { opacity: .4; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .essay-kicker {
+      color: var(--accent2);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .78rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .essay-panel h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      line-height: 1.15;
+      color: var(--dark);
+    }
+
+    .mini-section {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      margin-top: 14px;
+    }
+
+    .mini-section h3 {
+      margin: 0 0 6px;
+      color: var(--accent);
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .mini-section p {
+      margin: 0;
+    }
+
+    blockquote {
+      margin: 18px 0;
+      padding: 16px 18px;
+      border-left: 5px solid var(--accent2);
+      background: rgba(122, 63, 42, .08);
+      font-size: 1.08rem;
+    }
+
+    .citation {
+      font-size: .88rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      margin-top: 18px;
+      padding-top: 12px;
+    }
+
+    .return-btn {
+      margin-top: 8px;
+      background: var(--accent);
+      color: white;
+      border: 0;
+      padding: 10px 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      cursor: pointer;
+    }
+
+    .return-btn:hover,
+    .return-btn:focus {
+      background: var(--dark);
+    }
+
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .source-list {
+      white-space: pre-line;
+      font-size: .95rem;
+    }
+
+    .footnote-ref {
+      font-size: .72em;
+      vertical-align: super;
+      line-height: 0;
+      margin-left: 2px;
+    }
+
+    .footnote-ref a {
+      color: var(--accent2);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .notes-list {
+      padding-left: 1.35rem;
+      font-size: .93rem;
+    }
+
+    .notes-list li {
+      margin-bottom: 12px;
+    }
+
+    .notes-list a {
+      color: var(--accent2);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .bibliography-list {
+      font-size: .95rem;
+    }
+
+    .bibliography-list p {
+      margin: 0 0 14px 0;
+      padding-left: 1.75rem;
+      text-indent: -1.75rem;
+    }
+
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: .88rem;
+      text-align: center;
+    }
+
+    @media (max-width: 840px) {
+      .question-card,
+      .context-grid,
+      .analysis-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .exhibit-title {
+        display: block;
+      }
+
+      .instruction {
+        text-align: left;
+        margin-top: 8px;
+      }
+
+      .shelf-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      header, .card, .exhibit, .essay-panel {
+        padding: 18px;
+      }
+      .shelf-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .storefront::before, .storefront::after {
+        display: none;
+      }
+    }
+
+    @media print {
+      .nav-strip, .storefront, .essay-placeholder, .return-btn {
+        display: none !important;
+      }
+      .essay-panel {
+        display: block !important;
+        break-inside: avoid;
+        margin: 18px 0;
+      }
+      body {
+        background: white;
+      }
+      header, .card, .exhibit {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header id="top">
+      <p class="label"></p>
+      <h1>The Empty Shelf: How the Union Naval Blockade Shaped Confederate Civilian Life in 1862</h1>
+      <p class="subtitle">An Interactive History of Scarcity</p>
+      <div class="question-card">
+        <div>
+          <h2>Research Question</h2>
+          <p>How did the tightening Union naval blockade in 1862 translate from military policy into everyday scarcity for ordinary Confederate civilians?</p>
+        </div>
+        <div>
+          <h2>Thesis</h2>
+          <p>By 1862, the Union naval blockade had moved beyond a military abstraction to reshape the daily material lives of Confederate civilians through a cumulative, uneven process felt differently by different goods and communities as the year progressed.</p>
+        </div>
+      </div>
+      <nav class="nav-strip" aria-label="Exhibit navigation">
+        <a href="#exhibit">Exhibit Shelf</a>
+        <a href="#december">December 1862</a>
+        <a href="#analysis">Closing Analysis</a>
+        <a href="#notes">Footnotes</a>
+        <a href="#bibliography">Bibliography</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="context-grid" aria-label="Historical context">
+        <article class="card">
+          <h2>The Blockade Tightens</h2>
+          <p>In April 1861, President Lincoln declared a naval blockade of Confederate ports. In 1861, approximately 90 percent of Confederate ships still broke through. By 1862, that figure had dropped to less than 15 percent. What began as a military policy became a daily reality for ordinary Confederate civilians, as goods they depended on began to disappear from shelves, homes, and tables one by one.<sup class="footnote-ref"><a href="#fn1" id="fnref1">1</a></sup></p>
+        </article>
+        <article class="card">
+          <h2>Welcome to the General Store, January 1862</h2>
+          <p>At the start of 1862, a Confederate general store still carried the goods civilians depended on. The blockade had been declared, but its effects had not yet reached every shelf in the same way. Click an item on the shelf to see what disappears, when it disappears, and why that specific loss matters.</p>
+          <p class="source-note"><strong>Interpretive frame:</strong><br>The shelf is not just decoration. It is the argument. Item by item, it shows how a military policy became ordinary civilian scarcity.</p>
+        </article>
+      </section>
+
+      <section class="exhibit" id="exhibit">
+        <div class="exhibit-title">
+          <h2>Exhibit Shelf</h2>
+          <p class="instruction">Select one item. Each entry explains why that good disappeared, what evidence supports it, and what that specific shortage proves about Confederate civilian life.</p>
+        </div>
+        <div class="storefront" aria-label="Interactive general store shelf">
+          <div class="shelf-grid">
+            <button class="shelf-item" type="button" data-target="coffee" aria-controls="coffee" aria-expanded="false"><span class="item-icon">☕</span><span class="item-label">Coffee</span><span class="item-date">Spring 1862</span></button>
+<button class="shelf-item" type="button" data-target="sugar" aria-controls="sugar" aria-expanded="false"><span class="item-icon">▣</span><span class="item-label">Sugar</span><span class="item-date">April 1862</span></button>
+<button class="shelf-item" type="button" data-target="salt" aria-controls="salt" aria-expanded="false"><span class="item-icon">◻</span><span class="item-label">Salt</span><span class="item-date">Mid-1862</span></button>
+<button class="shelf-item" type="button" data-target="flour" aria-controls="flour" aria-expanded="false"><span class="item-icon">▤</span><span class="item-label">Flour &amp; Bread</span><span class="item-date">Spring–Summer 1862</span></button>
+<button class="shelf-item" type="button" data-target="medicine" aria-controls="medicine" aria-expanded="false"><span class="item-icon">✚</span><span class="item-label">Medicine</span><span class="item-date">Throughout 1862</span></button>
+<button class="shelf-item" type="button" data-target="cotton" aria-controls="cotton" aria-expanded="false"><span class="item-icon">▧</span><span class="item-label">Cotton Cloth</span><span class="item-date">Mid–Late 1862</span></button>
+          </div>
+        </div>
+        <div class="essay-area" aria-live="polite">
+          <div class="essay-placeholder" id="placeholder">
+            Click one product on the shelf. The point is not just to list shortages, but to show how the blockade became real in ordinary life.
+          </div>
+          
+<article id="coffee" class="essay-panel" tabindex="-1">
+  <div class="essay-kicker">Coffee · Spring 1862</div>
+  <h2>Coffee Disappears — Spring 1862</h2>
+  <section class="mini-section"><h3>Why it disappeared</h3><p>Coffee was almost entirely imported. The blockade cut off Southern ports from foreign trade almost immediately after its declaration. By early 1862, coffee shipments had stopped reaching most Confederate towns. Civilians turned to substitutes including chicory, rye, and roasted sweet potato.</p></section>
+<section class="mini-section"><h3>What it cost</h3><p>Before the war, coffee cost approximately 15 cents per pound. By mid-1862 it was nearly impossible to find at any price in many Confederate towns. The Confederate dollar, which stood at parity with the US dollar in 1861, had already begun losing value, meaning civilians were paying more for less with currency worth less every month.</p></section>
+<section class="mini-section"><h3>What the blockade did</h3><p>The American Pageant notes that &quot;customs duties were choked off as the coils of the Union blockade tightened,&quot; cutting off not only imported goods but the revenue the Confederate government needed to pay for the war itself.<sup class="footnote-ref"><a href="#fn2" id="fnref2">2</a></sup></p></section>
+  <button class="return-btn" type="button">Return to Exhibit Shelf</button>
+</article>
+
+
+<article id="sugar" class="essay-panel" tabindex="-1">
+  <div class="essay-kicker">Sugar · April 1862</div>
+  <h2>Sugar Becomes a Luxury — April 1862</h2>
+  <section class="mini-section"><h3>Why it disappeared</h3><p>Louisiana was the Confederacy&#x27;s primary sugar-producing state and home of its largest port, New Orleans. On April 25, 1862, Union naval forces under Captain David Farragut captured New Orleans, severing one of the Confederacy&#x27;s most important supply and production hubs in a single blow. With New Orleans gone, both the domestic supply and the import route for sugar collapsed simultaneously.</p></section>
+<section class="mini-section"><h3>What it cost</h3><p>Sugar prices rose sharply after the fall of New Orleans as supply dried up faster than demand. For Confederate civilians, sugar shifted from a common household staple to an occasional luxury within weeks of the city&#x27;s capture.</p></section>
+<section class="mini-section"><h3>What this means</h3><p>The fall of New Orleans in April 1862 is the single most important event explaining why 1862 was the turning point year for Confederate civilian scarcity. It was not a slow tightening. It was a sudden, specific loss that civilians felt immediately.<sup class="footnote-ref"><a href="#fn3" id="fnref3">3</a></sup></p></section>
+  <button class="return-btn" type="button">Return to Exhibit Shelf</button>
+</article>
+
+
+<article id="salt" class="essay-panel" tabindex="-1">
+  <div class="essay-kicker">Salt · Mid-1862</div>
+  <h2>Salt Runs Out — Mid-1862</h2>
+  <section class="mini-section"><h3>Why it disappeared</h3><p>Salt was not a luxury. It was the primary means of preserving meat before refrigeration. Without salt, meat rotted. The Confederacy had very few domestic salt works and relied heavily on imports that the blockade cut off. The shortage of salt therefore threatened not just salt itself but the entire meat supply.</p></section>
+<section class="mini-section"><h3>What it cost</h3><p>Salt that cost approximately 65 cents per sack before the war rose to as much as $60 per sack in some Confederate states by late 1862. This was not inflation in the ordinary sense. This was a good becoming functionally unavailable to ordinary civilians regardless of what they were willing to pay.</p></section>
+<section class="mini-section"><h3>What this means</h3><p>Salt is the clearest example of how the blockade&#x27;s effects compounded. It did not simply make one item scarce. It made every item that depended on salt scarce as well.<sup class="footnote-ref"><a href="#fn4" id="fnref4">4</a></sup></p></section>
+  <button class="return-btn" type="button">Return to Exhibit Shelf</button>
+</article>
+
+
+<article id="flour" class="essay-panel" tabindex="-1">
+  <div class="essay-kicker">Flour &amp; Bread · Spring–Summer 1862</div>
+  <h2>Empty Bread Boxes — Spring Through Summer 1862</h2>
+  <section class="mini-section"><h3>Why it disappeared</h3><p>Flour supplies dwindled as grain imports stopped and Confederate transportation networks were disrupted. Civilian steamboats were pressed into military service, cutting off the supply routes that towns and households depended on.</p></section>
+<section class="mini-section"><h3>Civilian voice</h3><p>Mary Guthrie Latta was a soldier&#x27;s wife in Dyersburg, Tennessee, managing a household alone with young children while her husband served as a captain in the 13th Tennessee Infantry, CSA. She was not a public figure. She had no audience. She was writing privately to her husband on April 6, 1862, about her daily life. When she mentions wanting her cousin to visit but preferring to wait &quot;until we get something to eat,&quot; she is not making a political statement. She is stating a fact of daily life in a single offhand clause, which tells us more about how ordinary Confederate civilians experienced scarcity than any official report could. She also notes that the steamboat Ben McCullough &quot;has been pressed into the service&quot; and can no longer make civilian runs, documenting the disruption of civilian supply routes in specific, verifiable terms.</p></section>
+  <blockquote>&quot;I would like very much to see her, still am not very sorry that her visit is to be postponed for awhile until we get something to eat.&quot;<br>— Mary Guthrie Latta, Dyersburg, Tennessee, April 6, 1862<sup class="footnote-ref"><a href="#fn5" id="fnref5">5</a></sup></blockquote>
+  <button class="return-btn" type="button">Return to Exhibit Shelf</button>
+</article>
+
+
+<article id="medicine" class="essay-panel" tabindex="-1">
+  <div class="essay-kicker">Medicine · Throughout 1862</div>
+  <h2>Medicine Runs Dry — Throughout 1862</h2>
+  <section class="mini-section"><h3>Why it disappeared</h3><p>The Confederacy depended almost entirely on imported medicines including quinine and other imported medical supplies. The blockade cut off these imports almost immediately. Confederate surgeons were forced to experiment with herbal substitutes, and civilians had even less access than the army, which at least had official supply channels however depleted.</p></section>
+<section class="mini-section"><h3>What it cost</h3><p>Basic medicines became essentially unavailable to civilians in many areas by mid-1862 regardless of price. Illness that was treatable before the war became life-threatening not because medicine had become expensive but because it had ceased to exist on the civilian market.</p></section>
+<section class="mini-section"><h3>What this means</h3><p>The disappearance of medicine from civilian life is the starkest example of how the blockade affected Confederate civilians differently from Confederate soldiers. The army had a supply system, however failing. Civilians had only the open market, and the open market had nothing to sell.<sup class="footnote-ref"><a href="#fn6" id="fnref6">6</a></sup></p></section>
+  <button class="return-btn" type="button">Return to Exhibit Shelf</button>
+</article>
+
+
+<article id="cotton" class="essay-panel" tabindex="-1">
+  <div class="essay-kicker">Cotton Cloth · Mid–Late 1862</div>
+  <h2>Homespun Takes Over — Mid to Late 1862</h2>
+  <section class="mini-section"><h3>Why it disappeared</h3><p>The Confederacy exported raw cotton but could no longer import the manufactured cloth made from it. Textile factories were overwhelmingly located in the North and in Britain. Confederate women returned to spinning and weaving at home, producing rough homespun fabric as a substitute for the manufactured cloth that had disappeared from stores.</p></section>
+<section class="mini-section"><h3>What this means</h3><p>The disappearance of cotton cloth from Confederate shelves is one of the war&#x27;s deepest ironies. The Confederacy was built on cotton. It wagered its independence on European demand for cotton. And yet its own civilians could not obtain cloth made from it because the manufacturing capacity was on the other side of the blockade.</p></section>
+<section class="mini-section"><h3>Cultural response</h3><p>Dr. Ross-Nazzal&#x27;s lecture notes reference Confederate women taking pride in &quot;denying themselves the silks and satins of their Northern sisters&quot; and a popular song celebrating &quot;the homespun dress the Southern ladies wear.&quot; This cultural response to scarcity is itself evidence of how deeply the blockade had reshaped daily life by mid-1862.<sup class="footnote-ref"><a href="#fn7" id="fnref7">7</a></sup></p></section>
+  <button class="return-btn" type="button">Return to Exhibit Shelf</button>
+</article>
+
+        </div>
+      </section>
+
+      <section class="analysis-grid" id="december">
+        <article class="card">
+          <p class="label">End of Year Shelf</p>
+          <h2>What Remains</h2>
+          <p>By the end of 1862, the shelves of a Confederate general store looked very different from January. The blockade had not simply raised prices. It had removed goods from civilian life entirely. Confederate soldiers writing home documented the same deterioration from the field. Jacob B. Click, a young cavalryman from Rockingham County, Virginia, was writing love letters to a girl back home, not a military report. The fact that food scarcity intrudes so insistently into correspondence that is otherwise entirely about romance and social life is itself significant. It suggests that scarcity was not an abstract concern but an inescapable daily fact by the fall of 1862.</p>
+          <blockquote>&quot;Som times we wold not git any thing to eat in 4 days but som corn that we wold steal out of the corn fields.&quot;<br>— Jacob B. Click, Virginia, September 18, 1862<sup class="footnote-ref"><a href="#fn8" id="fnref8">8</a></sup></blockquote>
+        </article>
+
+        <article class="card" id="analysis">
+          <p class="label">Closing Analysis</p>
+          <h2>What 1862 Set in Motion</h2>
+          <p>The blockade&#x27;s effects in 1862 were not yet catastrophic for every Confederate civilian in every location. They were cumulative and accelerating, and they were felt unevenly, hitting imported goods first, then domestic goods that depended on imported inputs like salt and medicine, then the transportation networks that moved everything else.
+
+The Confederate dollar stood at parity with the US dollar in 1861. By 1863 it had fallen to 63 cents. By 1865 it was worth less than 2 cents. In 1863, Confederate women in Richmond looted stores for food the market could no longer supply. One breakfast for three in Richmond in 1864 cost $141. The Confederacy ultimately experienced an inflation rate of approximately 9,000 percent over the course of the war.
+
+All of that began in 1862, item by item, on shelves like this one.<sup class="footnote-ref"><a href="#fn9" id="fnref9">9</a></sup></p>
+        </article>
+      </section>
+      <section class="card" id="notes">
+        <p class="label">Chicago Manual of Style</p>
+        <h2>Footnotes</h2>
+        <ol class="notes-list">
+          <li id="fn1">Jim Ross-Nazzal, PhD, “Civil War Part II,” HCC course lecture notes, Spring 2026; Steven Woodworth, “American Civil War (Overview),” <em>United States at War: Understanding Conflict and Society</em> (ABC-CLIO, 2008). <a href="#fnref1">↩</a></li>
+          <li id="fn2">David M. Kennedy, Lizabeth Cohen, and Thomas A. Bailey, <em>The American Pageant</em> (Boston: Houghton Mifflin, 2006), 474. <a href="#fnref2">↩</a></li>
+          <li id="fn3">Steven Woodworth, “American Civil War (Overview),” <em>United States at War: Understanding Conflict and Society</em> (ABC-CLIO, 2008), accessed June 13, 2008, http://www.usatwar.abc-clio.com. <a href="#fnref3">↩</a></li>
+          <li id="fn4">Jim Ross-Nazzal, PhD, “Civil War Part II,” HCC course lecture notes, Spring 2026. <a href="#fnref4">↩</a></li>
+          <li id="fn5">Mary Guthrie Latta to Samuel R. Latta, April 6, 1862, Samuel Rankin Latta Papers, 1848–1862, Accession No. 1990-198, Tennessee State Library and Archives, Nashville, Tennessee, accessed July 2026, https://teva.contentdm.oclc.org. <a href="#fnref5">↩</a></li>
+          <li id="fn6">Kennedy, Cohen, and Bailey, <em>The American Pageant</em>, 474. <a href="#fnref6">↩</a></li>
+          <li id="fn7">Ross-Nazzal, “Civil War Part II.” <a href="#fnref7">↩</a></li>
+          <li id="fn8">Jacob B. Click to Miss Evaline J. Haney, September 18, 1862, Jacob B. Click Papers, RL.30535, David M. Rubenstein Rare Book and Manuscript Library, Duke University, Durham, North Carolina, accessed July 2026, https://repository.duke.edu/dc/clickjacobbpapers-000848190. <a href="#fnref8">↩</a></li>
+          <li id="fn9">Ross-Nazzal, “Civil War Part II”; Kennedy, Cohen, and Bailey, <em>The American Pageant</em>, 476. <a href="#fnref9">↩</a></li>
+        </ol>
+      </section>
+
+      <section class="card" id="bibliography">
+        <p class="label">Chicago Manual of Style</p>
+        <h2>Bibliography</h2>
+        <div class="bibliography-list">
+          <p>Click, Jacob B. Letter to Miss Evaline J. Haney, September 1, 1862. Jacob B. Click Papers, RL.30535. David M. Rubenstein Rare Book and Manuscript Library, Duke University.</p>
+          <p>Click, Jacob B. Letter to Miss Evaline J. Haney, September 18, 1862. Jacob B. Click Papers, RL.30535. David M. Rubenstein Rare Book and Manuscript Library, Duke University, Durham, North Carolina. Accessed July 2026. https://repository.duke.edu/dc/clickjacobbpapers-000848190.</p>
+          <p>Haney, Lucius C. Letter to unnamed friend, June 22, 1862. Jacob B. Click Papers, RL.30535. David M. Rubenstein Rare Book and Manuscript Library, Duke University.</p>
+          <p>Kennedy, David M., Lizabeth Cohen, and Thomas A. Bailey. <em>The American Pageant</em>. Boston: Houghton Mifflin, 2006.</p>
+          <p>Latta, Mary Guthrie. Letter to Samuel R. Latta, April 6, 1862. Samuel Rankin Latta Papers, 1848–1862, Accession No. 1990-198. Tennessee State Library and Archives, Nashville, Tennessee. Accessed July 2026. https://teva.contentdm.oclc.org.</p>
+          <p>Ross-Nazzal, Jim, PhD. “Civil War Part I.” HCC course lecture notes, Spring 2026.</p>
+          <p>Ross-Nazzal, Jim, PhD. “Civil War Part II.” HCC course lecture notes, Spring 2026.</p>
+          <p>Woodworth, Steven. “American Civil War (Overview).” <em>United States at War: Understanding Conflict and Society</em>. ABC-CLIO, 2008. Accessed June 13, 2008. http://www.usatwar.abc-clio.com.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      Built as an interactive history exhibit using Chicago-style footnotes and a Bibliography. The point is to show the blockade becoming visible item by item, not just to say that scarcity happened.
+    </footer>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.shelf-item');
+    const panels = document.querySelectorAll('.essay-panel');
+    const placeholder = document.getElementById('placeholder');
+
+    function showPanel(id) {
+      panels.forEach(panel => {
+        panel.classList.toggle('active', panel.id === id);
+      });
+      buttons.forEach(btn => {
+        const isActive = btn.dataset.target === id;
+        btn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      });
+      if (placeholder) placeholder.style.display = 'none';
+      const panel = document.getElementById(id);
+      if (panel) {
+        panel.focus();
+        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => showPanel(btn.dataset.target));
+    });
+
+    document.querySelectorAll('.return-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        panels.forEach(panel => panel.classList.remove('active'));
+        buttons.forEach(b => b.setAttribute('aria-expanded', 'false'));
+        if (placeholder) placeholder.style.display = 'block';
+        document.getElementById('exhibit').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>
